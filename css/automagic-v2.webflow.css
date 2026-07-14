@@ -1,30 +1,8 @@
-@font-face {
-  font-family: Geist;
-  src: url('../fonts/Geist-Regular.ttf') format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Geist;
-  src: url('../fonts/Geist-SemiBold.ttf') format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Geist;
-  src: url('../fonts/Geist-Medium.ttf') format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* Funnel Display wordt geladen via Google Fonts (<link> in de <head> van elke pagina). */
 
 :root {
   --_color---white--01: #fff;
-  --font-family--font-family: Geist, Arial, sans-serif;
+  --font-family--font-family: 'Funnel Display', Arial, sans-serif;
   --_color---grey--01: #1a1a1a;
   --font-size--body-m: 1rem;
   --line-height--height-xl: 1.375em;
@@ -66,11 +44,18 @@
   --_color---grey--04: #a6a6a6;
   --_color---grey--07: #e6e6e6;
   --_color---grey--08: #f2f2f2;
+  /* Oude gradient-kleuren (uitgecommenteerd, niet verwijderd):
   --_color---hologram--0: #c9aaff;
   --_color---hologram--25: #feffbc;
   --_color---hologram--50: #ffcdfd;
   --_color---hologram--75: #b3e2ff;
   --_color---hologram--100: #839aff;
+  */
+  --_color---hologram--0: color-mix(in srgb, #3A86FF 50%, #fff);
+  --_color---hologram--25: color-mix(in srgb, #8338EC 50%, #fff);
+  --_color---hologram--50: color-mix(in srgb, #FF006E 50%, #fff);
+  --_color---hologram--75: color-mix(in srgb, #FB5607 50%, #fff);
+  --_color---hologram--100: color-mix(in srgb, #FFBE0B 50%, #fff);
   --_radius---round: 100vw;
   --_color---white--02: #fffc;
   --_color---black--01: #000;
@@ -104,7 +89,7 @@ body {
   line-height: var(--line-height--height-xl);
   font-weight: var(--font-weight--normal);
   letter-spacing: var(--letter-spacing--ls-s);
-  --font-family--font-family: Geist, Arial, sans-serif;
+  --font-family--font-family: 'Funnel Display', Arial, sans-serif;
   --font-size--body-m: 1rem;
   --line-height--height-xl: 1.375em;
   --font-weight--normal: 400;
@@ -347,7 +332,6 @@ blockquote {
   font-weight: var(--font-weight--medium);
   letter-spacing: var(--letter-spacing--ls-m);
   margin-bottom: 0;
-  overflow: hidden;
 }
 
 .styleguide-main {
@@ -819,7 +803,7 @@ blockquote {
   opacity: 1;
   color: var(--_color---grey--01);
   -webkit-text-fill-color: transparent;
-  mix-blend-mode: hard-light;
+  /* mix-blend-mode: hard-light; */
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -3497,7 +3481,7 @@ blockquote {
   justify-content: flex-start;
   align-items: center;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.4;
   display: flex;
   overflow: hidden;
 }
@@ -3584,7 +3568,7 @@ blockquote {
 
 @media screen and (max-width: 991px) {
   body {
-    --font-family--font-family: Geist, Arial, sans-serif;
+    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -3865,7 +3849,7 @@ blockquote {
 
 @media screen and (max-width: 767px) {
   body {
-    --font-family--font-family: Geist, Arial, sans-serif;
+    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -4185,7 +4169,7 @@ blockquote {
 
 @media screen and (max-width: 479px) {
   body {
-    --font-family--font-family: Geist, Arial, sans-serif;
+    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -4520,24 +4504,4 @@ blockquote {
 }
 
 
-@font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* Geist @font-face verwijderd — Funnel Display komt van Google Fonts. */
