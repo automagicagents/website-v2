@@ -82,7 +82,10 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: webflowModScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeIconScript }} />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <script src="/js/contact-form.js" defer />
+      </body>
     </html>
   );
 }

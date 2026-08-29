@@ -25,6 +25,19 @@ npm run extract   # opnieuw draaien na een nieuwe Webflow-export in webflow/
 2. Draai `npm run extract`.
 3. Controleer lokaal met `npm run dev`.
 
+## Contactformulier (Resend)
+
+Het CTA-formulier ("Je concurrenten automatiseren. En jij?") verstuurt inzendingen via
+[Resend](https://resend.com) naar `midas@automagicai.nl`:
+
+- `app/api/contact/route.js` — API-route die de mail verstuurt (afzender: `website@noreply.automagicagents.com`)
+- `public/js/contact-form.js` — onderschept de Webflow-formulieren en post naar `/api/contact`
+
+Vereiste environment variables (lokaal in `.env.local`, op Vercel via Settings → Environment Variables):
+
+- `RESEND_API_KEY` — verplicht
+- `CONTACT_EMAIL` — optioneel, overschrijft het standaard ontvangstadres
+
 ## Deployen op Vercel
 
 Importeer de repo op [vercel.com/new](https://vercel.com/new) — Vercel herkent Next.js automatisch, geen extra configuratie nodig. Of via de CLI: `npx vercel`.
