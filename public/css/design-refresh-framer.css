@@ -1,0 +1,550 @@
+/**
+ * Design Refresh - Framer Bold Gradient Direction
+ * Duidelijk zichtbare holographic treatments inspired by Framer, Speakeasy, Fiasco
+ * Behoudt: Funnel Display, hologram gradient, black pill buttons
+ */
+
+/* ===== 1. HERO: BOLD GRADIENT ON HEADING TEXT ===== */
+
+/* Strong gradient fill on hero heading text itself */
+.hero-heading {
+  background: linear-gradient(
+    135deg,
+    #3A86FF 0%,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800; /* Extra bold for impact */
+  letter-spacing: -0.04em;
+  position: relative;
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+  filter: drop-shadow(0 0 40px rgba(58, 134, 255, 0.3));
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Subtle animated gradient wash behind hero */
+.hero-section-wrap::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(58, 134, 255, 0.08) 0%,
+    rgba(131, 56, 236, 0.08) 25%,
+    rgba(255, 0, 110, 0.08) 50%,
+    transparent 70%
+  );
+  animation: rotate-gradient 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes rotate-gradient {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero subheading stays white for readability */
+.subheading-text.hero {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero eyebrow with gradient accent */
+.hero-eye-brow {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-eye-brow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(58, 134, 255, 0.2),
+    rgba(131, 56, 236, 0.2),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== 2. NAV: RAINBOW GRADIENT EDGE ===== */
+
+/* Thin hologram gradient line on top of navbar pill */
+.navbar-actions {
+  position: relative;
+  border-radius: var(--_radius---round);
+}
+
+.navbar-actions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #3A86FF 0%,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B 100%
+  );
+  border-radius: var(--_radius---round) var(--_radius---round) 0 0;
+  opacity: 1;
+}
+
+/* Enhanced navbar blur with subtle gradient */
+.navbar-bg-blur {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(131, 56, 236, 0.1);
+}
+
+/* Update button text - replace "Ontvang deze template" with brand CTA */
+.navbar-actions .button .button-text {
+  /* This will be updated via JS or by changing the HTML content */
+}
+
+/* ===== 3. PRICING: FULL GRADIENT FEATURED CARD ===== */
+
+/* Featured pricing card with BOLD gradient fill + white text */
+.pricing-card._02 {
+  background: linear-gradient(
+    135deg,
+    #3A86FF 0%,
+    #8338EC 30%,
+    #FF006E 60%,
+    #FB5607 90%
+  ) !important;
+  color: #ffffff !important;
+  border: none !important;
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(131, 56, 236, 0.3),
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  position: relative;
+  z-index: 2;
+}
+
+/* All text in featured card white */
+.pricing-card._02 * {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Featured card icon with white treatment */
+.pricing-card._02 .pricing-card-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3) inset !important;
+}
+
+/* Aanbevolen badge - more prominent */
+.pricing-card._02::before {
+  content: 'Aanbevolen';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #3A86FF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100vw;
+  box-shadow: 0 4px 20px rgba(58, 134, 255, 0.4);
+  z-index: 3;
+}
+
+/* Non-featured card stays light for contrast */
+.pricing-card:not(._02) {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+}
+
+/* Button in featured card */
+.pricing-card._02 .button {
+  background: #ffffff !important;
+  color: #3A86FF !important;
+}
+
+.pricing-card._02 .button .button-inner {
+  background: #ffffff !important;
+  color: #3A86FF !important;
+  font-weight: 700;
+}
+
+.pricing-card._02 .button .button-text {
+  color: #3A86FF !important;
+  text-shadow: none !important;
+}
+
+/* ===== 4. CTA BAND: FULL-WIDTH ACCENT BEFORE FOOTER ===== */
+
+/* New full-width CTA section pulled up before footer */
+.cta-band-wrapper {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    #3A86FF 0%,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B 100%
+  );
+  padding: 0.25rem 0;
+  margin-top: var(--_spacing---large);
+}
+
+.cta-band-inner {
+  background: #ffffff;
+  margin: 0 0.25rem;
+  border-radius: 2rem;
+  padding: var(--_spacing---xmedium) 5%;
+}
+
+.cta-band-content {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.cta-band-text h2 {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #3A86FF, #8338EC, #FF006E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-band-text p {
+  font-size: 1.125rem;
+  color: #525252;
+  line-height: 1.6;
+}
+
+.cta-band-form {
+  background: #fafafa;
+  border: 2px solid #e6e6e6;
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.cta-band-form .form_form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cta-band-form .form_input {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  color: #1a1a1a;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.cta-band-form .form_input:focus {
+  border-color: #3A86FF;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.1);
+  outline: none;
+}
+
+.cta-band-form .form_input::placeholder {
+  color: #a6a6a6;
+}
+
+.cta-band-form .form_input.is-text-area {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.cta-band-form .submit-button {
+  background: linear-gradient(
+    135deg,
+    #3A86FF,
+    #8338EC 50%,
+    #FF006E
+  );
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(58, 134, 255, 0.3);
+}
+
+.cta-band-form .submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(58, 134, 255, 0.4);
+}
+
+/* Hide old footer CTA form to avoid duplication */
+.footer .cta-form-card {
+  display: none;
+}
+
+/* Footer now just has links */
+.footer-main {
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+.footer-top {
+  padding-top: var(--_spacing---medium);
+  padding-bottom: var(--_spacing---medium);
+}
+
+@media (max-width: 991px) {
+  .cta-band-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .cta-band-text h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-band-inner {
+    border-radius: 1rem;
+    padding: var(--_spacing---medium) 5%;
+  }
+  
+  .cta-band-text h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-band-form {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== 5. SERVICES: FEATURED CARD WITH GRADIENT BORDER ===== */
+
+/* First capability card gets bold gradient treatment */
+.capabilities-card:first-child {
+  position: relative;
+  background: #ffffff;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 20px 60px rgba(58, 134, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.capabilities-card:first-child::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    135deg,
+    #3A86FF 0%,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient-rotate 4s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-rotate {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Featured badge on first service */
+.capabilities-card:first-child::after {
+  content: 'Populair';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #3A86FF, #8338EC);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 1rem;
+  border-radius: 100vw;
+  box-shadow: 0 2px 10px rgba(58, 134, 255, 0.3);
+}
+
+.capabilities-card:first-child .capabilities-card-title {
+  background: linear-gradient(135deg, #3A86FF, #8338EC, #FF006E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ===== VALUE CARDS: SUBTLE GRADIENT ENHANCEMENTS ===== */
+
+/* Middle value card with gradient glow */
+.value-card:nth-child(2) {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 12px 40px rgba(131, 56, 236, 0.15);
+}
+
+.value-card:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(58, 134, 255, 0.5),
+    rgba(131, 56, 236, 0.5),
+    rgba(255, 0, 110, 0.5)
+  );
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ===== TESTIMONIALS: GRADIENT ACCENTS ===== */
+
+/* Video testimonial card with gradient border */
+.testimonial-video {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.testimonial-video::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    #3A86FF,
+    #8338EC,
+    #FF006E
+  );
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ===== BUTTONS: ENHANCED GRADIENT BORDERS ===== */
+
+/* Primary buttons with animated gradient border */
+.button {
+  position: relative;
+  background-image: linear-gradient(
+    90deg,
+    #3A86FF 0%,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B 100%
+  );
+  background-size: 200% 100%;
+  animation: button-gradient-shift 3s ease infinite;
+}
+
+@keyframes button-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(58, 134, 255, 0.4);
+  filter: brightness(1.1);
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+
+@media (max-width: 767px) {
+  .hero-heading {
+    font-size: 2.5rem;
+    background-size: 150% 150%;
+  }
+  
+  .navbar-actions::before {
+    height: 2px;
+  }
+  
+  .pricing-card._02 {
+    transform: scale(1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .capabilities-card:first-child {
+    transform: scale(1);
+  }
+}
+
+/* ===== RESPECT REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading,
+  .button,
+  .hero-section-wrap::before,
+  .capabilities-card:first-child::before {
+    animation: none !important;
+  }
+}
+
+/* ===== FOCUS STATES ===== */
+
+.cta-band-form .form_input:focus-visible,
+.cta-band-form .submit-button:focus-visible {
+  outline: 2px solid #3A86FF;
+  outline-offset: 2px;
+}

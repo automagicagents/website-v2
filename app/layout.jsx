@@ -63,6 +63,7 @@ export default function RootLayout({ children }) {
         <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/automagic-v2.webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/design-refresh.css" rel="stylesheet" type="text/css" />
+        <link href="/css/design-refresh-framer.css" rel="stylesheet" type="text/css" />
         <style>{`
           /* Critical CSS for above-the-fold hero */
           .hero-section-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
@@ -99,6 +100,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         {children}
         <script src="/js/design-refresh.js" defer />
+        <script src="/js/cta-band-form.js" defer />
         <script src="/js/contact-form.js" defer />
       </body>
     </html>
