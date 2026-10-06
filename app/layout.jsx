@@ -54,9 +54,23 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
+          as="style"
+        />
         <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
         <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/automagic-v2.webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/css/design-refresh.css" rel="stylesheet" type="text/css" />
+        <style>{`
+          /* Critical CSS for above-the-fold hero */
+          .hero-section-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+          .hero-layout { text-align: center; max-width: 1200px; margin: 0 auto; }
+          .hero-heading { font-size: 5rem; line-height: 1em; font-weight: 700; letter-spacing: -0.04em; }
+          @media (max-width: 991px) { .hero-heading { font-size: 4rem; } }
+          @media (max-width: 767px) { .hero-heading { font-size: 2.5rem; } }
+        `}</style>
         <link
           href="/images/favicon.png"
           rel="icon"
@@ -84,6 +98,7 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         {children}
+        <script src="/js/design-refresh.js" defer />
         <script src="/js/contact-form.js" defer />
       </body>
     </html>

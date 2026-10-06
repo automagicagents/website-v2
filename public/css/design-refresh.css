@@ -1,0 +1,545 @@
+/**
+ * Design Refresh Overrides
+ * Verbetert spacing, hierarchy, colors, contrast en micro-interactions
+ * Behoudt: Funnel Display, hologram gradient, design tokens basis
+ */
+
+/* ===== PERFORMANCE & FONT OPTIMIZATION ===== */
+@font-face {
+  font-family: 'Funnel Display';
+  font-display: swap;
+}
+
+/* ===== UPDATED SPACING TOKENS ===== */
+:root {
+  /* Tighter vertical section spacing */
+  --_spacing---xmedium: 5rem;    /* was 6.25rem */
+  --_spacing---large: 6rem;      /* was 8rem */
+  --_spacing---medium: 4rem;     /* was 5rem */
+  --_spacing---small: 2.5rem;    /* was 3rem */
+  
+  /* 8px base spacing scale for consistency */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+  
+  /* Updated font sizes for better hierarchy */
+  --font-size--eyebrow: 0.8125rem;  /* 13px for eyebrow labels */
+  --font-size--body-m: 1rem;        /* 16px */
+  --font-size--body-feature: 0.9375rem; /* 15px instead of 14px */
+  
+  /* Improved letter spacing */
+  --letter-spacing--body: -0.01em;   /* relaxed from -0.03em */
+  --letter-spacing--heading: -0.04em; /* relaxed from -0.06em */
+}
+
+@media (max-width: 991px) {
+  :root {
+    --_spacing---large: 4.5rem;
+    --_spacing---medium: 3rem;
+    --_spacing---small: 2rem;
+    --_spacing---xmedium: 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --_spacing---large: 3.5rem;
+    --_spacing---medium: 2.5rem;
+    --_spacing---small: 1.5rem;
+    --_spacing---xmedium: 3.5rem;
+  }
+}
+
+/* ===== TYPOGRAPHY & READABILITY ===== */
+
+body {
+  letter-spacing: var(--letter-spacing--body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: var(--letter-spacing--heading);
+}
+
+/* Hero heading - stronger contrast */
+.hero-heading {
+  /* Gradient stays but with better contrast base */
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  font-weight: 700; /* was 600 */
+}
+
+/* Improved H2 scale for hierarchy */
+.heading-style-h2 {
+  font-size: 4rem;  /* slightly smaller from 4.5rem */
+  font-weight: 600; /* was 500 */
+}
+
+@media (max-width: 991px) {
+  .heading-style-h2 { font-size: 2.75rem; }
+}
+
+@media (max-width: 767px) {
+  .heading-style-h2 { font-size: 2.25rem; }
+}
+
+/* Eyebrow labels above section headings */
+.eye-brow {
+  font-size: var(--font-size--eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* Hero subheading - better line length */
+.subheading-text.hero {
+  max-width: 34rem; /* ~65 chars at 18px */
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9); /* better contrast */
+}
+
+/* Feature lists - increased from 14px to 15px */
+.capabilities-card-content-item,
+.pricing-card-content-list-item,
+.faq-item-answer {
+  font-size: var(--font-size--body-feature);
+  line-height: 1.6;
+}
+
+/* ===== COLOR & MODERN SURFACES ===== */
+
+/* Replace grey gradients with clean white sections */
+.section.about {
+  background-image: none;
+  background-color: #ffffff;
+}
+
+.section.faq {
+  background-image: none;
+  background-color: #fafafa;
+}
+
+.section.utility {
+  background-image: none;
+  background-color: #ffffff;
+}
+
+/* Keep hero dark */
+.section.hero {
+  background-color: #1a1a1a;
+}
+
+/* Add one intentional dark section */
+.section.testimonial {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+/* Hologram gradient as subtle accent on card borders */
+.value-card,
+.capabilities-card,
+.testimonial-card {
+  position: relative;
+}
+
+.value-card::before,
+.capabilities-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(58, 134, 255, 0.1),
+    rgba(131, 56, 236, 0.1) 25%,
+    rgba(255, 0, 110, 0.1) 50%,
+    rgba(251, 86, 7, 0.1) 75%,
+    rgba(255, 190, 11, 0.1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.value-card:hover::before,
+.capabilities-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== CONTRAST FIXES (WCAG AA) ===== */
+
+/* Footer links - was #ffffff33 (<2:1), now sufficient */
+.footer-link,
+.footer-social-link {
+  color: rgba(255, 255, 255, 0.85); /* ~12:1 on dark */
+}
+
+.footer-link:hover,
+.footer-social-link:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-row-text {
+  color: rgba(255, 255, 255, 0.65); /* ~7:1 */
+}
+
+/* Stats marquee - was #a6a6a6, now darker */
+.statics-item-name {
+  color: #757575; /* ~4.6:1 on white */
+}
+
+/* Form placeholders - better contrast */
+.form_input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* ~5:1 on dark input bg */
+}
+
+/* ===== TIGHTER SPACING ===== */
+
+/* Section vertical padding */
+.value-layout,
+.capabilities-layout,
+.process-layout,
+.casestudy-layout,
+.intergration-layout,
+.testimonial-layout,
+.pricing-layout,
+.team-layout,
+.faqs-layout {
+  padding-top: var(--_spacing---xmedium);
+  padding-bottom: var(--_spacing---xmedium);
+}
+
+.about-layout {
+  padding-top: var(--_spacing---large);
+  padding-bottom: var(--_spacing---large);
+}
+
+/* Tighter card padding */
+.value-card {
+  padding: 1.5rem; /* was 1rem with more spacing inside */
+}
+
+.value-card-bottom {
+  padding: 1.25rem 1rem; /* was 1.5rem 1.25rem */
+}
+
+.capabilities-card {
+  padding: 2rem; /* was 2.5rem */
+  gap: 2rem; /* was 2.5rem */
+}
+
+.testimonial-default {
+  padding: 2rem; /* was 2.5rem */
+  gap: 2rem;
+}
+
+.pricing-card {
+  padding: 2.5rem; /* was 3rem */
+  gap: 2rem; /* was 2.5rem */
+}
+
+/* Container max-width */
+.container-base {
+  max-width: 75rem; /* 1200px, was 80rem/1280px */
+}
+
+/* ===== VISUAL HIERARCHY ===== */
+
+/* Stronger hero eye-brow */
+.hero-eye-brow {
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+}
+
+/* Featured pricing card */
+.pricing-card._02 {
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(
+      135deg,
+      rgba(58, 134, 255, 0.3),
+      rgba(131, 56, 236, 0.3) 25%,
+      rgba(255, 0, 110, 0.3) 50%,
+      rgba(251, 86, 7, 0.3) 75%,
+      rgba(255, 190, 11, 0.3)
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Pricing tabs - more visible */
+.pricing-tab-link {
+  font-size: 1rem; /* was 0.875rem */
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  color: #525252;
+}
+
+.pricing-tab-link.w--current {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.pricing-tab-toggle {
+  background-color: #e6e6e6; /* was #cdcdcd */
+  width: 3rem; /* was 2.5rem */
+  height: 1.75rem; /* was auto */
+  border-radius: 100vw;
+}
+
+/* Add "Aanbevolen" badge */
+.pricing-card._02 .pricing-card-top::before {
+  content: 'Aanbevolen';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    135deg,
+    #3A86FF,
+    #8338EC 25%,
+    #FF006E 50%,
+    #FB5607 75%,
+    #FFBE0B
+  );
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 1rem;
+  border-radius: 100vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Highlight one value card */
+.value-card:nth-child(2) {
+  background: linear-gradient(135deg, #fafafa, #ffffff);
+  border-color: #e6e6e6;
+  transform: translateY(-0.5rem);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== MICRO-INTERACTIONS ===== */
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Smooth transitions */
+.button,
+.nav-link,
+.value-card,
+.capabilities-card,
+.testimonial-card,
+.pricing-card,
+.team-card,
+.faq-item {
+  transition: all 0.2s ease;
+}
+
+/* Button hover - subtle lift */
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Card hovers */
+.value-card:hover,
+.capabilities-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* Link hover */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.footer-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid #3A86FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* FAQ smooth animation */
+.faq-item-bottom {
+  transition: height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item-icon {
+  transition: transform 0.2s ease;
+}
+
+.faq-list-item.w--current .faq-item-icon {
+  transform: rotate(45deg);
+}
+
+/* ===== NAVIGATION & FOOTER IMPROVEMENTS ===== */
+
+/* Compact sticky nav */
+.navbar-wraper {
+  padding-top: 1rem; /* was 2rem */
+}
+
+.navbar-brand-link {
+  height: 3rem; /* was 3.5rem */
+}
+
+.navbar-actions {
+  padding: 0.25rem;
+}
+
+/* Nav legibility on light sections */
+.navbar-bg-blur {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show blur on scroll */
+body.scrolled .navbar-bg-blur {
+  opacity: 1;
+}
+
+.navbar-bg-blur.visible {
+  opacity: 1;
+}
+
+/* Footer form - better contrast */
+.cta-form-card {
+  background-color: rgba(26, 26, 26, 0.95);
+  background-image: linear-gradient(rgba(26, 26, 26, 0.95), rgba(15, 15, 15, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form_input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.form_input:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer spacing */
+.footer-top {
+  min-height: auto; /* was 100vh */
+  padding-top: var(--_spacing---xmedium);
+  padding-bottom: var(--_spacing---xmedium);
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+
+@media (max-width: 767px) {
+  /* Tighter mobile spacing */
+  .hero-layout {
+    gap: 2rem; /* was 3rem */
+  }
+  
+  .button-wrap {
+    gap: 0.75rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  /* Mobile typography */
+  .hero-heading {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .subheading-text.hero {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Mobile cards */
+  .value-card,
+  .capabilities-card,
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .pricing-card {
+    padding: 2rem;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* GPU acceleration for animations */
+.button,
+.value-card,
+.capabilities-card,
+.hero-heading {
+  will-change: transform;
+}
+
+/* Prevent layout shift */
+img[width][height] {
+  height: auto;
+}
+
+/* Lazy load fade-in */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
