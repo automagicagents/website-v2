@@ -1,22 +1,32 @@
 # Design Refresh Analyse – Automagic Website v2
 
-**Branch:** `cursor/design-refresh-5952` (aangemaakt en gepusht naar remote)
-
+**Branch:** `cursor/design-refresh-5952`  
 **Datum:** 6 oktober 2026
 
 ---
 
 ## Pagina-overzicht
 
-De site bevat 7 pagina's (alle momenteel live):
+De site bevat **één hoofdpagina** (marketing homepage):
 
-1. **/** (home) – Toont momenteel "SOON - We werken aan een nieuwe website"
-2. **/changelog** – Versiegeschiedenis (v2.0, v1.0)
-3. **/style-guide** – Typografie, kleuren en button voorbeelden
-4. **/license** – Licentie-informatie voor fonts, images, videos, icons
-5. **/instructions** – Webflow preloader instructies
-6. **/401** – Unauthorized error page
-7. **/coming-soon** – Coming soon placeholder
+### **Hoofdpagina: `/live`**
+De volledige marketing site met 11 secties:
+1. **Navigation** – Sticky header met logo, menu en CTA
+2. **Hero** – "We make your Sales AI First" hoofdboodschap
+3. **Logo Marquee** – Scrollende klanten-logos
+4. **About** – Video en statistieken
+5. **Values** – 3 waarden-cards
+6. **Services/Capabilities** – Grid met diensten en data
+7. **Process** – Verticale tijdlijn met stappen
+8. **Case Studies** – Slider met projecten
+9. **Integrations** – Cirkel met integraties
+10. **Testimonials** – 3 klantquotes
+11. **Pricing** – 2 prijsplannen
+12. **Team** – Team member slider
+13. **FAQ** – Uitklapbare vragen
+14. **Footer** – CTA form + navigatie
+
+*Notitie: Root `/` toont tijdelijk een coming-soon placeholder. Utility pages (/changelog, /style-guide, /license, /instructions, /401) zijn Webflow template voorbeelden, geen onderdeel van de marketing site.*
 
 ---
 
@@ -32,254 +42,306 @@ De site bevat 7 pagina's (alle momenteel live):
   - H4: 3.5rem (56px) → 2rem tablet → 1.75rem mobiel
   - H5: 3rem (48px) → 1.75rem tablet → 1.5rem mobiel
   - H6: 2rem (32px) → 1.5rem tablet → 1rem mobiel
-  - Title XL: 3rem (48px)
-  - Title L: 2rem (32px)
-  - Title M: 1.5rem (24px)
-  - Title S: 1.25rem (20px)
-  - Body L: 1.125rem (18px)
-  - Body M: 1rem (16px)
-  - Body S: 0.875rem (14px)
-  - Body XS: 0.75rem (12px)
+  - Title XL: 3rem, Title L: 2rem, Title M: 1.5rem, Title S: 1.25rem
+  - Body L: 1.125rem, Body M: 1rem, Body S: 0.875rem, Body XS: 0.75rem
 - **Line heights:** 1em (tight), 1.1em, 1.2em, 1.375em (default body)
-- **Letter spacing:** -0.06em (large headings), -0.05em (medium), -0.03em (body)
+- **Letter spacing:** -0.06em (grote headings), -0.05em (medium), -0.03em (body)
 
 ### Kleuren
 
 **Brand gradient (hologram):**
-- Hologram 0%: color-mix(in srgb, #3A86FF 50%, #fff)
-- Hologram 25%: color-mix(in srgb, #8338EC 50%, #fff)
-- Hologram 50%: color-mix(in srgb, #FF006E 50%, #fff)
-- Hologram 75%: color-mix(in srgb, #FB5607 50%, #fff)
-- Hologram 100%: color-mix(in srgb, #FFBE0B 50%, #fff)
+- Gebruikt color-mix met basis kleuren #3A86FF (blauw), #8338EC (paars), #FF006E (roze), #FB5607 (oranje), #FFBE0B (geel)
+- Alle op 50% opacity mixed met wit
 
-**Neutral kleuren:**
-- White 01: #ffffff
-- Grey 01 (text): #1a1a1a
-- Grey 02: #292929
-- Grey 03: #525252
-- Grey 04: #a6a6a6
-- Grey 05: #b8b8b8
-- Grey 06: #cdcdcd
-- Grey 07: #e6e6e6
-- Grey 08 (backgrounds): #f2f2f2
-- Black 01: #000000
-
-**Transparante varianten:**
-- White 02-07: rgba wit met alpha 0.8, 0.6, 0.4, 0.2, 0.1, 0.05
-- Black 02-07: rgba zwart met alpha 0.8, 0.6, 0.4, 0.2, 0.1, 0.05
+**Neutral palette:**
+- White: #ffffff
+- Grey 01-08: #1a1a1a → #f2f2f2 (8 tinten)
+- Black: #000000
+- Transparante varianten voor overlays
 
 ### Spacing
-- Small: 3rem (48px) → 2rem mobiel
-- Medium: 5rem (80px) → 4rem tablet → 3rem mobiel
-- Large: 8rem (128px) → 6rem tablet → 4rem mobiel
-- XMedium: 6.25rem (100px) → 5rem tablet → 3.5rem mobiel
+- Small: 3rem → 2rem mobiel
+- Medium: 5rem → 4rem tablet → 3rem mobiel  
+- Large: 8rem → 6rem tablet → 4rem mobiel
+- XMedium: 6.25rem → 5rem tablet → 3.5rem mobiel
 
 ### Border radius
 - Round: 100vw (volledig rond)
-- 8XL: 8rem → 6rem tablet → 5rem mobiel
-- 7XL: 7.5rem → 5rem tablet → 4.5rem mobiel
-- 6XL: 6.5rem → 4.5rem tablet → 4rem mobiel
-- 5XL: 5rem → 4rem tablet → 3.5rem mobiel
-- 4XL: 3.5rem → 2.75rem tablet → 2.25rem mobiel
-- 3XL: 3rem → 2.5rem tablet → 2rem mobiel
-- 2XL: 2rem → 1.5rem tablet → 1.25rem mobiel
-- XL: 1.75rem → 1.25rem tablet → 1rem mobiel
-- L: 1.5rem → 1rem tablet → 0.75rem mobiel
-- M: 1.125rem → 0.75rem tablet → 0.5rem mobiel
-- Default: 1rem → 0.5rem tablet/mobiel
+- 8XL tot Default: 8rem → 0.5rem (13 stappen, alle responsive)
 
 ### Buttons
-- **Primair:** Zwarte achtergrond met hologram gradient border (2px), rounded pill shape, inner shadow
-- **Secundair:** Witte achtergrond met border, transparante hover state
-- **Ghost:** Geen achtergrond, alleen tekst met icon
+- **Primary:** Hologram gradient border (2px) met zwarte fill, pill shape, inset glow
+- **Secondary:** Witte achtergrond, border, subtle hover
+- **Ghost:** Transparant met icon
 
-### Box shadows
+### Shadows
 - Inset glows: `inset 0 0 12px #fff`, `inset 0 0 40px #fff`
-- Card shadows: `inset 0 -2px 1px #0000001f, inset 0 0 1px 2px #fff`
+- Card depth: `inset 0 -2px 1px rgba(0,0,0,0.12), inset 0 0 1px 2px #fff`
 
 ---
 
-## Analyse per pagina (5 grootste zwaktes)
-
-### 1. Home (/) – Coming Soon Page
+## Homepage analyse (`/live`)
 
 **Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/home-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/home-mobile.png`
+- Full page desktop: `/opt/cursor/artifacts/before/live-desktop.png`
+- Full page mobiel: `/opt/cursor/artifacts/before/live-mobile.png`
+- Per sectie: `/opt/cursor/artifacts/before/live-[sectie]-desktop.png`
+
+### **Top 5 grootste zwaktes (overall)**
+
+1. **Performance – LCP 4.8s en TBT 1230ms:** De site is traag. Lighthouse performance score is slechts 51/100. Largest Contentful Paint duurt bijna 5 seconden, Total Blocking Time is 1.2 seconde. Dit voelt niet premium.
+
+2. **Whitespace – Excessive vertical spacing creëert leegte:** Veel secties hebben 8rem (128px) padding tussen elkaar op desktop. De pagina voelt uitgerekt en leeg, vooral op grote schermen. Geen tight, premium gevoel.
+
+3. **Visual hierarchy – Alles heeft dezelfde visuele weight:** Alle section headings gebruiken dezelfde size (h2), alle cards hebben dezelfde treatment, alle buttons zien er hetzelfde uit. Geen duidelijke prioriteit of flow.
+
+4. **Color – Overdadig gebruik van grijze gradients:** Bijna elke sectie heeft een licht-naar-donker grijze gradient als achtergrond. Het voelt repetitief en dated. Mist kleur, energie en moderniteit.
+
+5. **Typography – Line length en contrast issues:** Body text loopt te breed (>80 karakters), negatieve letter-spacing (-0.06em op headings) maakt lange teksten moeilijk leesbaar, en witte tekst op grijze gradients heeft te weinig contrast.
+
+---
+
+### **Per sectie analyse**
+
+#### 1. **Navigation**
+*Screenshot: `/opt/cursor/artifacts/before/live-nav-desktop.png`*
 
 **Zwaktes:**
 
-1. **Layout – Minimale content, wasted space:** De hele pagina toont enkel "SOON" text en één regel tekst. Geen enkele waarde voor bezoekers. Zonde van premium domeinnaam en traffic.
+1. **Layout – Floating nav met blur voelt amateuristisch:** De navbar floats met backdrop-blur en grey transparent achtergrond. Bij scroll over lichte secties valt het weg. Geen solid foundation.
 
-2. **Typografie – "SOON" tekst mist visuele kracht:** Het grote "SOON" woord gebruikt een flauw grijs gradient maar heeft geen depth, contrast of premium gevoel. Voelt vlak en oninteressant.
+2. **Button – "Ontvang deze template" CTA is misleading:** Dit is een Webflow template CTA die naar een externe template shop linkt. Voor een echte marketing site is dit onprofessioneel en verwarrend.
 
-3. **Color – Achtergrond is saaie grijze gradient:** De donkere gradient van grijs naar zwart voelt gedateerd en web-2.0-achtig. Mist moderniteit en energie.
+3. **Whitespace – Te veel verticale ruimte rondom nav:** De navbar neemt 80px + 32px padding (totaal >110px) in. Voor een sticky nav is dit veel, vooral op mobiel waar elke pixel telt.
 
-4. **Button/CTA – Hologram brand pill ziet er goedkoop uit:** De zwarte pill met kleurrijke gradient ring voelt amateuristisch. Te veel visueel gewicht voor zo'n klein element.
-
-5. **Whitespace – Geen verticale ritme of structuur:** Alles staat gewoon in het midden van de viewport. Geen sectie-indeling, geen visuele ademruimte. Voelt haastig in elkaar gezet.
-
----
-
-### 2. Changelog (/changelog)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/changelog-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/changelog-mobile.png`
+#### 2. **Hero Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-hero-desktop.png`*
 
 **Zwaktes:**
 
-1. **Layout – Massive empty space onder content:** Op desktop is er een enorm wit/grijs gebied onder de changelog items. De content neemt slechts 30% van de viewport in beslag.
+1. **Typography – Gradient text effect is barely readable:** De hoofdtekst "We make your Sales AI First" gebruikt een light hologram gradient op donkere achtergrond. De kleuren zijn zo licht dat contrast laag is (<3:1 ratio), vooral "your" in roze.
 
-2. **Typografie – Inconsistent heading hierarchy:** "Changelog" heading is gigantisch, maar de version numbers (v2.0, v1.0) zijn kleiner dan verwacht voor main sections. Leesbaarheid lijd hieronder.
+2. **Layout – Centered layout voelt statisch en voorspelbaar:** Alles is perfect gecentreerd: eyebrow, heading, subheading, buttons. Geen asymmetrie, geen visuele spanning. Voelt template-achtig.
 
-3. **Whitespace – Te veel ruimte tussen sections, te weinig binnen:** De ruimte tussen v2.0 en v1.0 is excessief, maar de bullet points binnen elke versie voelen gecrammed. Slechte balans.
+3. **Background – Abstract shape is te groot en domineert:** De zwarte blob-vorm neemt 60% van de hero in beslag maar voegt geen betekenis toe. Het verdringt de boodschap in plaats van deze te ondersteunen.
 
-4. **Visual hierarchy – Footer gradient domineert de page:** De donkere gradient aan de onderkant trekt meer aandacht dan de actual content. De footer social icons zijn bijna onzichtbaar tegen de donkere achtergrond.
-
-5. **Mobile – CTA form popup is te groot:** Op mobiel neemt het "Your Competitors Are Automating" formulier de helft van de viewport in beslag, waardoor de changelog content onleesbaar wordt zonder te scrollen.
-
----
-
-### 3. Style Guide (/style-guide)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/style-guide-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/style-guide-mobile.png`
+#### 3. **Logo Marquee**
+*Onderdeel van hero section*
 
 **Zwaktes:**
 
-1. **Layout – Geen echte grid structure:** Alles staat in één verticale kolom op een lichtgrijze achtergrond. Voelt meer als een dump van elementen dan een curated style guide.
+1. **Color – Logo's zijn volledig desaturated (grijs):** Alle klanten-logos zijn omgezet naar grijs. Dit mist impact en herkenbaarheid. Echte logo's in kleur zouden meer vertrouwen wekken.
 
-2. **Color – Gradient color samples zijn onduidelijk:** De hologram gradient toont percentages (0%, 25%, 50%, 75%, 100%) maar de kleuren zijn zo licht dat het moeilijk is om verschil te zien. Lage bruikbaarheid.
+2. **Spacing – Te veel ruimte tussen logo's (5rem = 80px):** De gap maakt de marquee langzaam en leeg aanvoelen. Logo's komen te traag voorbij.
 
-3. **Typography – Font samples hebben geen context:** "Heading1, Heading2" etc. worden getoond maar niet in een echte use case. Moeilijk om schaal en impact te beoordelen.
-
-4. **Visual hierarchy – Alles heeft gelijke visuele weight:** Typography section, Color section, Button section hebben allemaal dezelfde treatment. Geen clear focal points.
-
-5. **Buttons – Slechts 3 button variants getoond:** Er zijn veel button states in de CSS maar de style guide toont er maar 3. Inconsistentie tussen code en design.
-
----
-
-### 4. License (/license)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/license-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/license-mobile.png`
+#### 4. **About Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-about-desktop.png`*
 
 **Zwaktes:**
 
-1. **Typography – Line length te lang op desktop:** De body text strekt zich uit tot 500px breed, wat moeilijk leesbaar is. Ideale line length is 50-75 karakters, dit is veel breder.
+1. **Layout – Video is te klein en verloren in whitespace:** De about video is slechts 600px breed (37.5rem) in een 1280px container. Enorme witte ruimte eromheen. De video verdrinkt.
 
-2. **Whitespace – Te veel vertical spacing rond intro text:** De intro paragraph heeft enorme margins boven en onder, waardoor de eigenlijke licentie items ver weg voelen.
+2. **Animations – Content is hidden on load:** Veel about content heeft `visibility: hidden` totdat JS animaties laden. Als JS faalt of traag is, zie je niks. Bad progressive enhancement.
 
-3. **Visual hierarchy – Alle sections lijken even belangrijk:** "Fonts", "Images", "Videos", "Icons" hebben allemaal dezelfde font size en weight. Geen differentiatie in prioriteit.
+3. **Typography – Stats marquee is te klein en licht:** De scrollende statistieken ("400% ROI", "60% tijd bespaard") zijn in 7rem font size maar in lichtgrijs (#a6a6a6). Te zwak voor zo'n belangrijke metric.
 
-4. **Layout – Two-column layout op desktop voelt geforceerd:** De label (Fonts, Images) in de linker kolom en content rechts creëert awkward whitespace. Zou beter werken als full-width blocks.
-
-5. **Mobile – Footer gradient is te agressief:** De donkere gradient aan de onderkant start te hoog en verduistert de laatste sections van content. Contrast issues.
-
----
-
-### 5. Instructions (/instructions)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/instructions-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/instructions-mobile.png`
+#### 5. **Values Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-values-desktop.png`*
 
 **Zwaktes:**
 
-1. **Typography – Body text is te klein voor instructies:** Instructies gebruiken de default body size (16px) maar voor technical steps zou 18px beter zijn voor leesbaarheid.
+1. **Visual hierarchy – Alle 3 cards hebben gelijke weight:** Geen primary card. Alle drie cards zijn exact hetzelfde: size, color, layout. Geen focus, geen prioriteit.
 
-2. **Layout – Geen visuele breaks tussen steps:** "Edit Preloader", "After Editing", "Important" sections lopen in elkaar over. Numbered steps of visuele dividers zouden helpen.
+2. **Whitespace – Te veel padding binnen cards (2.5rem = 40px):** De cards hebben 40px padding aan alle kanten, waardoor de content klein en verloren lijkt in de grote border-radius (7.5rem) container.
 
-3. **Whitespace – Inconsistent spacing tussen list items:** Sommige bullet points hebben 0.25rem margin-bottom, andere niet. Inconsistent verticaal ritme.
+3. **Icons – Generic glassmorphic treatment voelt overused:** De icon frames gebruiken blur, meerdere lagen, en overdreven glows. Het effect voelt 2021, niet 2026.
 
-4. **Visual hierarchy – Section headings zijn niet bold genoeg:** "Preloader", "After Editing", "Important" gebruiken medium weight maar zouden semibold moeten zijn voor duidelijkheid.
-
-5. **Mobile – CTA form overlay is invasive:** Net als op changelog, blokkeert het contact form op mobiel de content en is moeilijk te dismissen. Bad UX.
-
----
-
-### 6. 401 (/401)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/401-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/401-mobile.png`
+#### 6. **Services/Capabilities Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-services-desktop.png`*
 
 **Zwaktes:**
 
-1. **Layout – Alleen een coming soon placeholder:** Deze pagina toont dezelfde "SOON" content als de homepage. Geen daadwerkelijke 401 error messaging.
+1. **Layout – Grid breakpoints zijn awkward:** Op desktop is het een 3-column grid met één breed card links. De asymmetrie voelt per ongeluk, niet ontworpen. Bij 1440px zijn cards te smal of te breed.
 
-2. **Typography – Geen instructies voor de gebruiker:** Een 401 pagina zou moeten uitleggen wat er mis ging en wat de gebruiker kan doen. Nu is het alleen decoratie.
+2. **Typography – Card content is te klein (14px body-s):** De capability descriptions gebruiken 0.875rem (14px) text met -0.03em letter-spacing. Op cards die 200px+ breed zijn, is dit te klein en maakt het cheap.
 
-3. **Color – Identiek aan home page:** Dezelfde grijze gradient achtergrond. Geen differentiatie tussen verschillende page types.
+3. **Color – Data badges zijn te busy:** De 4 data visualisatie cards hebben donkergrijze achtergronden (#525252) met witte accents en icons. Te veel contrast, te veel visual noise.
 
-4. **Button/CTA – Automagic logo pill heeft geen functie:** De zwarte pill met logo is niet klikbaar en heeft geen duidelijk doel.
-
-5. **Whitespace – Zelfde probleem als home:** Alles centered, geen structuur, geen ademruimte rond elementen.
-
----
-
-### 7. Coming Soon (/coming-soon)
-
-**Screenshot referenties:**
-- Desktop: `/opt/cursor/artifacts/before/coming-soon-desktop.png`
-- Mobiel: `/opt/cursor/artifacts/before/coming-soon-mobile.png`
+#### 7. **Process Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-process-desktop.png`*
 
 **Zwaktes:**
 
-1. **Layout – Exacte duplicate van home en 401:** Dit is letterlijk dezelfde page als / en /401. Geen unieke content.
+1. **Layout – Vertical timeline is te breed en repetitief:** Elke process step is een full-width block met left-center-right grid. Bij 5+ steps voelt het eindeloos en saai.
 
-2. **Typografie – "SOON" gradient effect is barely visible:** Het gradient effect op het woord "SOON" is zo subtiel dat het bijna niet opvalt. Mist impact.
+2. **Whitespace – Inconsistente spacing tussen steps:** Sommige steps hebben 0.5rem gap, andere hebben meerdere rems door de line-hide divs. Geen ritme.
 
-3. **Color – Boring grey-to-black gradient:** Herhaling van het zelfde probleem. Deze achtergrond voelt saai en outdated.
+3. **Micro-interactions – Animated line is barely visible:** De gradient progress line is 4px breed en beweegt traag. Op grote schermen is het bijna onzichtbaar. Mist impact.
 
-4. **Visual hierarchy – Geen hierarchy:** Er is maar één heading en één subheading. Geen layers van informatie.
+#### 8. **Case Studies Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-casestudies-desktop.png`*
 
-5. **Micro-interactions – Geen animations of beweging:** De pagina is volledig statisch. Geen hover states, geen subtle beweging. Voelt lifeless.
+**Zwaktes:**
+
+1. **Layout – Slider padding is te groot (5rem links + rechts):** De case study cards hebben 80px padding aan weerszijden voor nav buttons. Dit maakt cards klein en maakt swipen awkward.
+
+2. **Mobile – Stacked layout loses image impact:** Op mobiel stapelen de image en content verticaal, waardoor de 3:2 image ratio verloren gaat. Cards worden 2x zo lang en scrollen wordt vermoeiend.
+
+3. **Typography – Stats numbers zijn te groot zonder context:** "87%" in 2rem font zonder directe label erboven. Je moet zoeken naar wat het betekent.
+
+#### 9. **Integrations Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-integrations-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – Circle layout is gimmicky en onpraktisch:** De integratie-iconen staan in een cirkel rond een centrale "Automagic" badge. Het ziet er speels uit maar is moeilijk te scannen. Geen logical order.
+
+2. **Animations – Marquee rows zijn too fast:** De integration tiles scrollen in horizontale rijen maar de snelheid is te hoog. Je kunt logo's niet lezen voor ze verdwijnen.
+
+3. **Visual hierarchy – Central badge competeert met content:** Het grote centrale "Automagic" circular badge trekt meer aandacht dan de daadwerkelijke integraties.
+
+#### 10. **Testimonials Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-testimonials-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – 3-column grid maakt testimonials te smal:** Op 1440px zijn testimonial cards slechts ~400px breed. De quote text loopt 4-5 regels en voelt gecrammed.
+
+2. **Typography – Quote text is te klein (18px):** Body-l (1.125rem) is te klein voor testimonials die de main content zijn. Zou 20-24px moeten zijn voor leesbaarheid en importance.
+
+3. **Color – Video testimonial card gets lost:** Eén testimonial is een video tegen donkere achtergrond, twee zijn tekst tegen lichte achtergrond. Het dark card verdrinkt visueel tussen de light cards.
+
+#### 11. **Pricing Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-pricing-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – Tabs are tiny and easy to miss:** De "Maandelijks/Jaarlijks" tab selector is klein (14px) en lichtgrijs. Het ziet eruit als disabled state, niet als een active control.
+
+2. **Visual hierarchy – Both plans look equally important:** De twee pricing cards (Starter vs Enterprise) hebben bijna identieke styling. Geen "recommended" badge, geen visual accent op de target plan.
+
+3. **Typography – Feature lists zijn te dicht op elkaar:** Checkmarks en feature text hebben 0.25rem gap maar regels hebben ook 0.25rem margin-bottom. Alles loopt in elkaar, moeilijk te scannen.
+
+#### 12. **Team Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-team-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – Slider shows only 30% width per slide:** Team cards zijn 1:1.3 aspect ratio maar de slider mask is slechts 30% breed. Je ziet fractie van een card, moet constant swipen. Frustrerend.
+
+2. **Micro-interactions – Image hover state is invisible:** Team photos hebben een subtle inner-shadow hover maar het is zo subtiel dat je het niet ziet. Geen feedback.
+
+#### 13. **FAQ Section**
+*Screenshot: `/opt/cursor/artifacts/before/live-faq-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – Accordion items hebben te veel decoratie:** Elke FAQ heeft een 2px transparent border met gradient background, rounded corners, number badge, icon button. Te busy.
+
+2. **Whitespace – Collapsed items zijn te groot:** Een collapsed FAQ neemt 80px+ hoogte in (padding + icon + number). Met 8+ FAQs wordt dit een lange scroll zonder content.
+
+3. **Typography – Answer text is hidden too deep:** Je moet klikken om antwoorden te zien, maar de collapsed state geeft geen preview. Voelt als extra werk.
+
+#### 14. **Footer & CTA Form**
+*Screenshot: `/opt/cursor/artifacts/before/live-footer-desktop.png`*
+
+**Zwaktes:**
+
+1. **Layout – Form is buried at bottom of 100vh section:** De CTA form zit in een fullscreen footer. Je moet scrollen voorbij social links en nav om het te vinden. Te laat.
+
+2. **Color – Dark gradient makes form hard to read:** Het form zit op een donkergrijze-naar-zwart gradient. Inputs zijn dark met low contrast borders. Moeilijk te zien wat je typt.
+
+3. **Typography – Footer links zijn te licht (#fff op 20% opacity):** Social media links en footer nav zijn witte text op 20% opacity (#ffffff33). Contrast ratio is <2:1. Onleesbaar.
 
 ---
 
-## Performance & readability quick facts
+## Performance & Readability
 
-### Performance opmerkingen:
-- **Large CSS file:** automagic-v2.webflow.css is 4460 regels. Veel unused CSS voor een site met slechts 7 simpele pagina's.
-- **Google Fonts preconnect:** Correct geïmplementeerd met preconnect hints.
-- **Geen lazy loading:** Images en video's hebben geen lazy loading attributen.
-- **Webflow artifacts:** Veel `.w-variant-*` classes en inline styles die de CSS opblazen.
-- **No image optimization info:** Geen moderne formaten (WebP, AVIF) of responsive images te zien in HTML.
+### **Lighthouse audit (localhost:3000/live)**
 
-### Readability opmerkingen:
-- **Line length:** Te lang op license en instructions pages (>80 karakters per regel).
-- **Contrast:** Footer social icons (wit op donkere gradient) hebben waarschijnlijk lage contrast ratio (<4.5:1).
-- **Font sizes:** Body text is 16px, wat acceptabel is, maar geen responsive typography (geen fluid scaling).
-- **Letter spacing:** Negatieve letter-spacing (-0.03em op body, tot -0.06em op headings) kan leesbaarheid verminderen bij lange passages.
+**Performance: 51/100** ❌
+- First Contentful Paint: 2.2s (geel)
+- Largest Contentful Paint: 4.8s (rood)
+- Total Blocking Time: 1230ms (rood)
+- Cumulative Layout Shift: 0.002 (groen)
+- Speed Index: 5.6s (rood)
+
+**Accessibility: 93/100** ✅
+
+**Render-blocking resources:** 5 (CSS files)
+**Image optimization:** Goed (alle images geoptimaliseerd)
+**Text compression:** Goed (gzip enabled)
+**Offscreen images:** 34KB could be lazy-loaded later
+
+### **Image analyse**
+- **Totaal aantal images:** 128 in index.html
+- **Lazy loading:** ✅ Alle images hebben `loading="lazy"`
+- **Moderne formaten:** ❌ Alleen PNG, geen WebP/AVIF
+- **Responsive images:** ❌ Geen srcset of picture elements
+- **File sizes:** Gemengd (1KB icons tot 260KB case study images)
+
+**Grootste images:**
+- caseimg1-p-800.png: 260KB
+- case3.png: 228KB  
+- testimonial-avt-5.png: 193KB
+- team-1-p-500.png: 168KB
+
+### **Readability issues**
+
+**Contrast problemen:**
+- Hero gradient text op dark background: <3:1 in roze/oranje sections
+- Footer social links (#fff op 20% opacity): <2:1
+- Stats marquee lichtgrijs (#a6a6a6): ~3.2:1 (minimaal)
+- Placeholder text in dark forms: <3:1
+
+**Line length:**
+- Body text in cards: 60-70 karakters ✅ (goed)
+- Hero subheading: ~85 karakters ⚠️ (te lang)
+- Testimonials in smalle kolommen: 40 karakters ⚠️ (te kort)
+
+**Font sizes:**
+- Desktop body: 16px ✅ (acceptabel)
+- Mobile body: 16px ✅ (acceptabel)  
+- Feature lists: 14px ⚠️ (te klein voor long-form)
+- Footer text: 14px @ <2:1 contrast ❌ (onleesbaar)
+
+**Letter spacing:**
+- Body: -0.03em ⚠️ (tight, kan strain veroorzaken bij lange tekst)
+- Headings: -0.06em ⚠️ (zeer tight, beïnvloedt readability)
 
 ---
 
 ## Samenvatting
 
-De site gebruikt een solide design system met goede tokens (spacing, typography scale, radius scale) maar de implementatie mist verfijning:
+De homepage heeft een solide design system foundation maar de implementatie mist refinement en premium polish. Belangrijkste problemen:
 
-**Grootste problemen:**
-1. **Lege pages:** Home, 401, en coming-soon zijn placeholders zonder waarde
-2. **Excessive whitespace:** Footer gradients en large spacing creëren lege gebieden
-3. **Weak hierarchy:** Alles heeft hetzelfde visuele gewicht
-4. **Generic gradients:** Grey-to-black achtergronden voelen dated
-5. **Mobile CTA overlay:** Invasive formulier blokkeert content
+### **Grootste issues:**
 
-**Sterke punten om te behouden:**
-- Funnel Display font choice (modern, variable)
-- Hologram gradient concept (onderscheidend)
-- Rounded pill buttons (friendly, modern)
-- CSS variable system (maintainable)
-- Spacing scale (consistent)
+1. **Slechte performance** – LCP 4.8s, TBT 1.2s. Site voelt traag en zwaar.
+2. **Excessive whitespace** – Veel lege ruimte door overdreven spacing (8rem vertical padding).
+3. **Weak hierarchy** – Alles heeft dezelfde visuele weight, geen clear prioriteit.
+4. **Repetitieve gradients** – Grijs-naar-donker backgrounds in bijna elke sectie.
+5. **Contrast issues** – Te licht gekleurde text op gradients, vooral in footer.
 
-**Next steps:**
-Een redesign voorstel maken dat deze tokens gebruikt maar met:
-- Beter contrast en hierarchy
-- Modernere color treatments
-- Functionele homepage content
-- Mobile-first approach voor CTAs
-- Tighter layouts met betere balance
+### **Sterke punten:**
+
+- Funnel Display typography is modern en onderscheidend
+- Hologram gradient concept is uniek en herkenbaar
+- Lazy loading is correct geïmplementeerd op alle images
+- Rounded pill button style is friendly en contemporary
+- CSS variable system is maintainable en consistent
+- Layout shift (CLS 0.002) is excellent
+
+### **Actiepunten voor redesign:**
+
+1. **Performance:** Reduce render-blocking CSS, optimize LCP element, reduce JS blocking
+2. **Spacing:** Tighten vertical rhythm, gebruik 3-4rem in plaats van 8rem tussen secties
+3. **Hierarchy:** Differentiate section treatments, add focal points, vary card styles
+4. **Color:** Reduce gradient overuse, add more white/clean sections, improve contrast
+5. **Typography:** Increase line-height, reduce negative letter-spacing, fix contrast ratios
+6. **Layout:** Make asymmetric layouts intentional, reduce excessive centering
+7. **Mobile:** Optimize touch targets, improve form placement, fix testimonial widths
+
+---
+
+**Volgende stap:** Redesign voorstel maken met concrete verbeteringen die de design tokens respecteren maar de implementatie verfijnen voor een tighter, modern, premium gevoel.
