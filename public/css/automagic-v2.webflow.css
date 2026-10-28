@@ -1,8 +1,8 @@
-/* Funnel Display wordt geladen via Google Fonts (<link> in de <head> van elke pagina). */
+/* Plus Jakarta Sans wordt geladen via Google Fonts (<link> in de <head> van elke pagina). */
 
 :root {
   --_color---white--01: #fff;
-  --font-family--font-family: 'Funnel Display', Arial, sans-serif;
+  --font-family--font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   --_color---grey--01: #1a1a1a;
   --font-size--body-m: 1rem;
   --line-height--height-xl: 1.375em;
@@ -89,7 +89,7 @@ body {
   line-height: var(--line-height--height-xl);
   font-weight: var(--font-weight--normal);
   letter-spacing: var(--letter-spacing--ls-s);
-  --font-family--font-family: 'Funnel Display', Arial, sans-serif;
+  --font-family--font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   --font-size--body-m: 1rem;
   --line-height--height-xl: 1.375em;
   --font-weight--normal: 400;
@@ -3568,7 +3568,7 @@ blockquote {
 
 @media screen and (max-width: 991px) {
   body {
-    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
+    --font-family--font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -3849,7 +3849,7 @@ blockquote {
 
 @media screen and (max-width: 767px) {
   body {
-    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
+    --font-family--font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -4169,7 +4169,7 @@ blockquote {
 
 @media screen and (max-width: 479px) {
   body {
-    --font-family--font-family: 'Funnel Display', Arial, sans-serif;
+    --font-family--font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     --font-size--body-m: 1rem;
     --line-height--height-xl: 1.375em;
     --font-weight--normal: 400;
@@ -4504,4 +4504,4 @@ blockquote {
 }
 
 
-/* Geist @font-face verwijderd — Funnel Display komt van Google Fonts. */
+/* Geist @font-face verwijderd — Plus Jakarta Sans komt van Google Fonts. */
