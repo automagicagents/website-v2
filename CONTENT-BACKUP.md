@@ -233,7 +233,7 @@ Navigatielinks:
 # 7. License — `license.html`
 - **H2:** License
 - **Subheading:** All graphical assets in this template are licensed for personal and commercial use. If you'd like to use a specific asset, please check the license below
-- **Fonts:** Automagic uses the **Funnel Display** font, which is a free and open-use typeface. You are free to use our designs without any font licensing restrictions.
+- **Fonts:** Automagic uses the **Plus Jakarta Sans** font, which is a free and open-use typeface. You are free to use our designs without any font licensing restrictions.
 - **Images:** All images used in Automagic are free sourced from **Lummi**, ensuring they are properly licensed for use in our projects.
 - **Videos:** All videos used in Automagic are free sourced from **Freepik**, ensuring they are properly licensed for use in our projects.
 - **Icons:** All icons used in Automagic are free sourced from **Solar Icons** and **Tabler Icons**, ensuring they are properly licensed for use in our projects.
